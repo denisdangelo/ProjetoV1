@@ -1,0 +1,24 @@
+{
+  "name": "projetov1",
+  "version": "1.0.0",
+  "description": "Projeto de Ordem de Serviço utilizando o Electron + MongoDB",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denisdangelo/ProjetoV1.git"
+  },
+  "author": "Denis D'Angelo da Silveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/denisdangelo/ProjetoV1/issues"
+  },
+  "homepage": "https://github.com/denisdangelo/ProjetoV1#readme",
+  "dependencies": {
+    "electron": "^36.2.0",
+    "mongoose": "^8.14.3"
+  }
+}
