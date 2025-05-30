@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../public/css/output.css" rel="stylesheet">
-  <title>Projeto com TailwindCSS</title>
-  
+  <title>Aluguel de Equipamentos</title>
+  <link href="../public/css/output.css" rel="stylesheet"> <!-- Tailwind -->
 </head>
-<body class="bg-gray-100">
 
-  <h1 class="text-3xl font-bold underline text-blue-600">
-    Hello, Tailwind!
-  </h1>
+<body class="flex h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <div class="w-64 bg-blue-800 text-white p-4">
+    <h1 class="text-2xl font-bold mb-8">Menu</h1>
+    <ul>
+      <li class="mb-4">
+        <button onclick="client()" 
+                class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
+          Clientes
+        </button>
+      </li>
+      <li class="mb-4">
+        <button onclick="serviceOrder()" 
+                class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
+          Ordens de Serviço
+        </button>
+      </li>
+    </li>
+    <li class="mb-4">
+      <button onclick="product()" 
+              class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
+        Ordens de Serviço
+      </button>
+    </li>
+  </li>
+      <!-- Adicione outros botões conforme necessário -->
+    </ul>
+  </div>
 
-  <p class="text-lg text-gray-700">
-    Começando um projeto do jeito certo! 🚀
-  </p>
+  <!-- Conteúdo Dinâmico (Aqui carregaremos as páginas) -->
+  <iframe id="content" class="flex-1 border-none"></iframe>
 
+  <script src="renderer.js"></script> <!-- Funções ficarão aqui -->
 </body>
 </html>
