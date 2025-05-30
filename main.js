@@ -50,77 +50,7 @@ function aboutWindow() {
   about.loadFile('./src/views/sobre.html')
 }
 
-// Janela clientes
-let client
-function clientWindow() {
-    nativeTheme.themeSource = 'light'
-    const main = BrowserWindow.getFocusedWindow()
-    if (main) {
-        client = new BrowserWindow({
-            width: 910,
-            height: 680,
-            //autoHideMenuBar: true,
-            //resizable: false,
-            parent: main,
-            modal: true,
-            //ativação do preload.js
-            webPreferences: {
-                preload: path.join(__dirname, 'preload.js')
-            }
-        })
-    }
-    client.loadFile('./src/views/clientes.html')
-    client.center() //iniciar no centro da tela   
-}
 
-// Janela ordemServico
-let serviceOrder
-function serviceOrderWindow(){
-  nativeTheme.themeSource = 'light'
-    const main = BrowserWindow.getFocusedWindow()
-    if (main) {
-      serviceOrder = new BrowserWindow({
-            width: 910,
-            height: 680,
-            //autoHideMenuBar: true,
-            //resizable: false,
-            parent: main,
-            modal: true,
-            //ativação do preload.js
-            webPreferences: {
-                preload: path.join(__dirname, 'preload.js')
-            }
-        })
-    }
-    serviceOrder.loadFile('./src/views/ordemServico.html')
-    serviceOrder.center() //iniciar no centro da tela   
-}
-
-
-// Janela produtos
-
-let product
-function productWindow(){
-  nativeTheme.themeSource = 'light'
-    const main = BrowserWindow.getFocusedWindow()
-    if (main) {
-        client = new BrowserWindow({
-            width: 910,
-            height: 680,
-            //autoHideMenuBar: true,
-            //resizable: false,
-            parent: main,
-            modal: true,
-            //ativação do preload.js
-            webPreferences: {
-                preload: path.join(__dirname, 'preload.js')
-            }
-        })
-    }
-    client.loadFile('./src/views/produtos.html')
-    client.center() //iniciar no centro da tela 
-
-  }
 /** ===============================================================
  * ====================== JANELAS - FIM ===========================*/
 
@@ -216,13 +146,3 @@ const template = [
 ]
 
 
-// recebimento dos pedidos do renderizador para abertura de janelas (botões) autorizado no preload.js
-ipcMain.on('client-window', () => {
-  clientWindow()
-})
-ipcMain.on('serviceOrder-window', () => {
-  serviceOrderWindow()
-})
-ipcMain.on('produtos-window', () => {
-  productWindow()
-})

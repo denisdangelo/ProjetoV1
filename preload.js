@@ -11,7 +11,5 @@ ipcRenderer.send('db-connect')
 
 // expor (autorizar a comunicação entre processos)
 contextBridge.exposeInMainWorld('api', {
-    clientWindow: () => ipcRenderer.send('client-window'), 
-    serviceOrderWindow: () => ipcRenderer.send('serviceOrder-window'), 
-    productWindow: () => ipcRenderer.send('produtos-window'), 
+
 })
