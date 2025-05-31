@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Empresas</title>
+  <link href="../public/css/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 h-screen flex flex-col">
+  <div class="flex-1 w-full p-4 bg-white overflow-auto">
+   
+    <h1 class="text-2xl font-bold mb-4">Cadastro de Empresas</h1>
+   <!-- form -->
+    <form id="formEnterprise" class="mt-2 space-y-4">
+      <!-- id -->
+      <input type="hidden" id="inputIdEnterprise">
+        <!-- Buscar  -->
+      <div class="flex flex-wrap items-end gap-4">
+        <div class="flex-1 min-w-[200px]">
+          <input type="text" class="w-full px-3 py-2 border rounded-md" 
+                id="searchEnterprise" maxlength="50" spellcheck="false" 
+                placeholder="Buscar por Nome ou CNPJ">
+        </div>
+        
+        <div>
+          <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  id="btnRead" onclick="searchEnterprise()">
+            Buscar
+          </button>
+        </div>
+      </div>
+
+      <hr class="my-4 border-t border-blue-500">
+        <!-- Nome/Razão Social -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="col-span-2 md:col-span-1">
+          <label for="inputNameEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Nome/Razão Social</label>
+          <input type="text" id="inputNameEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                placeholder="Nome completo ou Razão Social" spellcheck="false" required
+                maxlength="60">
+        </div>
+            <!-- CNPJ  -->
+        <div>
+          <label for="inputCNPJEnterprise" class="block text-sm font-medium text-gray-700 mb-1">CNPJ</label>
+          <input type="text" id="inputCNPJEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                placeholder="XX.XXX.XXX/XXXX-XX" spellcheck="false"
+                maxlength="18">
+        </div>
+      </div>
+
+        
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+            <label for="inputEmployees" class="block text-sm font-medium text-gray-700 mb-1">Quantidade de funcionários</label>
+            <select id="inputEmployees" 
+                    class="w-full px-3 py-2 border rounded-md" 
+                    name="employees" required>
+              <option value=""></option>
+              <option value="1-10">de 1 a 10</option>
+              <option value="11-15">de 11 a 15</option>
+              <option value="16-20">de 16 a 20</option>
+              <option value="21-30">de 21 a 30</option>
+              <option value="31-40">de 31 a</option>
+              <option value="41-50">de 41 a 50</option>
+              <option value="+50">mais de 50</option>
+            </select>
+        </div>
+
+        <div>
+          <label for="inputPhoneEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+          <input type="text" id="inputPhoneEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                placeholder="(XX) XXXX-XXXX" spellcheck="false"
+                maxlength="15" required>
+        </div>
+
+        <div>
+          <label for="inputCEPEnterprise" class="block text-sm font-medium text-gray-700 mb-1">CEP</label>
+          <input type="text" id="inputCEPEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                placeholder="XXXXX-XXX" spellcheck="false"
+                maxlength="9" required onblur="buscarCEPEnterprise()">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="md:col-span-2">
+          <label for="inputAddressEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Logradouro</label>
+          <input type="text" id="inputAddressEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="50" required>
+        </div>
+
+        <div>
+          <label for="inputNumberEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Número</label>
+          <input type="text" id="inputNumberEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="10" required>
+        </div>
+
+        <div>
+          <label for="inputComplementEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Complemento</label>
+          <input type="text" id="inputComplementEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="30">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for="inputNeighborhoodEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Bairro</label>
+          <input type="text" id="inputNeighborhoodEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="40" required>
+        </div>
+
+        <div>
+          <label for="inputCityEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
+          <input type="text" id="inputCityEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="40" required>
+        </div>
+
+        <div>
+          <label for="inputUFEnterprise" class="block text-sm font-medium text-gray-700 mb-1">UF</label>
+          <select id="inputUFEnterprise" 
+                  class="w-full px-3 py-2 border rounded-md" 
+                  name="UF" required>
+            <option value=""></option>
+            <option value="AC">AC - Acre</option>
+            <option value="AL">AL - Alagoas</option>
+            <option value="SP">SP - São Paulo</option>
+            <option value="RJ">RJ - Rio de Janeiro</option>
+            <option value="MG">MG - Minas Gerais</option>
+            <option value="PR">PR - Paraná</option>
+            <option value="RS">RS - Rio Grande do Sul</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="my-4 border-t border-blue-500"> 
+      <h2 class="text-xl font-bold mb-2">Contato na Empresa</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="inputContactNameEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Nome do Contato</label>
+          <input type="text" id="inputContactNameEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="50">
+        </div>
+
+        <div>
+          <label for="inputContactRoleEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
+          <input type="text" id="inputContactRoleEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="30">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="inputContactEmailEnterprise" class="block text-sm font-medium text-gray-700 mb-1">E-mail do Contato</label>
+          <input type="email" id="inputContactEmailEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="50">
+        </div>
+        <div>
+          <label for="inputContactPhoneEnterprise" class="block text-sm font-medium text-gray-700 mb-1">Telefone do Contato</label>
+          <input type="text" id="inputContactPhoneEnterprise" 
+                class="w-full px-3 py-2 border rounded-md" 
+                spellcheck="false" maxlength="15">
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-6">
+        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+                id="btnCreate">
+          Adicionar
+        </button>
+        <button type="submit" class="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600"
+                id="btnUpdate">
+          Editar
+        </button>
+        <button type="button" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                id="btnDelete">
+          Excluir
+        </button>
+        <button type="reset" class="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+                id="btnReset">
+          Limpar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../rendererEmpresas.js"></script> </body>
+</html>

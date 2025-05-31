@@ -16,7 +16,7 @@ function createWindow() {
   nativeTheme.themeSource = 'dark'
   win = new BrowserWindow({
     width: 1200,
-    height: 800,
+    height: 900,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     }
