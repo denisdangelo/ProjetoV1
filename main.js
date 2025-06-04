@@ -5,6 +5,10 @@ const { app, BrowserWindow, nativeTheme, Menu , ipcMain} = require('electron');
 /* relacionado ao preload.js */
 const path = require('node:path');
 
+// Importação do Model Cliente da camada model
+const ClienteModel = require('./src/models/Cliente.js');
+
+
 
 
 /** ===============================================================
