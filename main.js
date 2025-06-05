@@ -105,6 +105,11 @@ ipcMain.on('db-connect', async (event) => {
 }*/
 })
 
+// IMPORTANTE ! Desconectar do banco de dados quando a aplicação for encerrada.
+app.on('before-quit', () => {
+	desconectar()
+})
+
 // template do menu
 const template = [
   {

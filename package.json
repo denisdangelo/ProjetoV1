@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/denisdangelo/ProjetoV1#readme",
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.8",
     "electron": "^36.2.0",
     "mongoose": "^8.15.1"
   },
   "devDependencies": {
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.1.8"
   }
 }
