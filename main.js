@@ -5,8 +5,22 @@ const { app, BrowserWindow, nativeTheme, Menu , ipcMain} = require('electron');
 /* relacionado ao preload.js */
 const path = require('node:path');
 
+// Importação dos métodos conectar e desconectar (módulo de conexão)
+const { conectar, desconectar } = require('./database.js')
+
 // Importação do Model Cliente da camada model
 const ClienteModel = require('./src/models/Cliente.js');
+
+// Importação do Model Empresa da camada model
+const EmpresaModel = require('./src/models/Empresa.js');
+
+// Importação do Model OrdemServico da camada model
+const OrdemServicoModel = require('./src/models/OrdemServico.js');
+
+// Importação do Model Produto da camada model
+const ProdutoModel = require('./src/models/Produto.js');
+
+
 
 
 
@@ -74,6 +88,22 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+
+//=============== iniciar a conexão com o banco de dados (pedido direto do preload.js) =======//
+ipcMain.on('db-connect', async (event) => {
+	let conectado = await conectar()
+	// se conectado for igual a true
+	if (conectado) {
+		//console.log("Conexão bem-sucedida, executando troca de ícone...")
+		// enviar uma mensagem para o renderizador trocar o ícone, criar um delay de 0.5s para sincronizar a nuvem
+		setTimeout(() => {
+			event.reply('db-status', "conectado")
+		}, 500) //500ms        
+	} /*else {
+    console.log("Falha na conexão, ícone não será alterado.")
+}*/
+})
 
 // template do menu
 const template = [
