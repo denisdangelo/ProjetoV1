@@ -105,6 +105,21 @@ ipcMain.on('db-connect', async (event) => {
 }*/
 })
 
+
+//===================== Crud Create =============================
+//===============================================================
+ipcMain.on('save-client', async (event, clientData) => {
+  //teste de recebimento
+  console.log(clientData)
+})
+
+
+//===================== Fim - Crud Create =======================
+//===============================================================
+
+
+
+
 // IMPORTANTE ! Desconectar do banco de dados quando a aplicação for encerrada.
 app.on('before-quit', () => {
 	desconectar()

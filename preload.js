@@ -9,7 +9,8 @@ const { contextBridge, ipcRenderer } = require('electron')
 // Enviar ao main um pedido para conexão com o banco de dados
 ipcRenderer.send('db-connect')
 
+
 // expor (autorizar a comunicação entre processos)
 contextBridge.exposeInMainWorld('api', {
-
+    saveClient: (clientData) => ipcRenderer.send('save-client', clientData),
 })
