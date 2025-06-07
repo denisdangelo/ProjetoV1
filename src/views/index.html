@@ -3,44 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Aluguel de Equipamentos</title>
-  <link href="../public/css/output.css" rel="stylesheet"> <!-- Tailwind -->
+  <link href="../public/css/output.css" rel="stylesheet">
 </head>
 
 <body class="flex h-screen bg-gray-100">
-  <!-- Sidebar -->
   <div class="w-64 bg-blue-800 text-white p-4">
     <h1 class="text-2xl font-bold mb-8">Menu</h1>
     <ul>
       <li class="mb-4">
-        <button onclick="loadPage('clientes')" 
+        <button onclick="loadContent('clientes')" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Clientes
         </button>
       </li>
       <li class="mb-4">
-        <button onclick="loadPage('empresas')" 
+        <button onclick="loadContent('empresas')" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Empresas
         </button>
       </li>
       <li class="mb-4">
-        <button onclick="loadPage('produtos')" 
+        <button onclick="loadContent('produtos')" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Produtos
         </button>
       </li>
-    <li class="mb-4">
-      <button onclick="loadPage('ordemServico')" 
-              class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
-        Aluguel
-      </button>
-    </li>
+      <li class="mb-4">
+        <button onclick="loadContent('ordemServico')" 
+                class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
+          Aluguel
+        </button>
+      </li>
     </ul>
   </div>
 
-  <!-- Conteúdo Dinâmico (Aqui carregaremos as páginas) -->
-  <iframe id="content" class="flex-1 border"></iframe>
-
-  <script src="renderer.js"></script> <!-- Funções ficarão aqui -->
-</body>
+  <div id="main-content-area" class="flex-1">
+    <div class="p-4 text-center text-gray-700">
+        <h2 class="text-3xl font-bold mb-4">Bem-vindo ao Sistema de Aluguel de Equipamentos</h2>
+        <p class="text-lg">Selecione uma opção no menu lateral para começar.</p>
+    </div>
+  </div>
+  
+  <script src="./renderer.js"></script> </body>
 </html>
