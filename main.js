@@ -126,12 +126,11 @@ ipcMain.on('save-client', async (event, clientData) => {
       cidade: clientData.cidade,
       uf: clientData.uf,
     })
-    await newCliente.save()
+    const savedClient = await newClient.save()
+    event.reply('client-saved',);
   } catch (error) {
-
+    console.log(error);
   }
-
-
 })
 
 
