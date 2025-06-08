@@ -15,7 +15,7 @@ const itemAlugadoSchema = new mongoose.Schema({
   quantidade: { type: Number, required: true, min: 1 },
   valorDiarioItem: { type: Number, required: true, min: 0 },
   subtotalItem: { type: Number, required: true, min: 0 }, // Calculado: (valorDiarioItem * quantidade * dias)
-});
+}, {versionKey: false});
 
 
 // 2. Definição do Schema Mongoose para Ordem de Serviço
@@ -55,7 +55,7 @@ const ordemServicoSchema = new mongoose.Schema({
   },
 
   observacoes: { type: String },
-}, { timestamps: true }); // Adiciona campos createdAt e updatedAt automaticamente
+}, { timestamps: true }, {versionKey: false}); // Adiciona campos createdAt e updatedAt automaticamente
 
 // Criação e Exportação do Model Mongoose
 module.exports = mongoose.model('OrdemServico', ordemServicoSchema);

@@ -21,7 +21,7 @@ const clienteSchema = new mongoose.Schema({
   bairro: { type: String, required: true }, // Mapeia de inputNeighborhoodClient
   cidade: { type: String, required: true }, // Mapeia de inputCityClient
   uf: { type: String, required: true }, // Mapeia de inputUFClient
-});
+}, {versionKey: false});
 
 // 2. Criação e Exportação do Model Mongoose
 // O primeiro argumento 'Clientes' é o nome da coleção no MongoDB (Mongoose pluraliza automaticamente para 'clientes')

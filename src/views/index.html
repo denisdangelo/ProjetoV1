@@ -11,25 +11,25 @@
     <h1 class="text-2xl font-bold mb-8">Menu</h1>
     <ul>
       <li class="mb-4">
-        <button onclick="loadContent('clientes')" 
+        <button onclick="clientesWin()" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Clientes
         </button>
       </li>
       <li class="mb-4">
-        <button onclick="loadContent('empresas')" 
+        <button onclick="empresasWin()" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Empresas
         </button>
       </li>
       <li class="mb-4">
-        <button onclick="loadContent('produtos')" 
+        <button onclick="produtosWin()" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Produtos
         </button>
       </li>
       <li class="mb-4">
-        <button onclick="loadContent('ordemServico')" 
+        <button onclick="ordemServicoWin()" 
                 class="w-full py-2 px-4 bg-blue-700 hover:bg-blue-600 rounded">
           Aluguel
         </button>
@@ -37,12 +37,6 @@
     </ul>
   </div>
 
-  <div id="main-content-area" class="flex-1">
-    <div class="p-4 text-center text-gray-700">
-        <h2 class="text-3xl font-bold mb-4">Bem-vindo ao Sistema de Aluguel de Equipamentos</h2>
-        <p class="text-lg">Selecione uma opção no menu lateral para começar.</p>
-    </div>
-  </div>
   
   <script src="./renderer.js"></script> </body>
 </html>

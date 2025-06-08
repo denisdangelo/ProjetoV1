@@ -21,7 +21,7 @@ const empresaSchema = new mongoose.Schema({
   contatoCargo: { type: String }, // Mapeia de inputContactRoleEnterprise
   contatoEmail: { type: String }, // Mapeia de inputContactEmailEnterprise
   contatoTelefone: { type: String }, // Mapeia de inputContactPhoneEnterprise
-});
+}, {versionKey: false});
 
 // Criação e Exportação do Model Mongoose
 module.exports = mongoose.model('Empresa', empresaSchema);
