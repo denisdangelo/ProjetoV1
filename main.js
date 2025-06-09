@@ -214,7 +214,8 @@ ipcMain.on('save-client', async (event, clientData) => {
 			cidade: clientData.cidade,
 			uf: clientData.uf,
 		})
-		event.reply('client-saved', args)
+		 await newClient.save()
+		event.reply('reset-form')
 	} catch (error) {
 		console.log(error);
 	}

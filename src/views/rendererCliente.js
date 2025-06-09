@@ -29,31 +29,34 @@
             cpf: cleanedCPFClient, 
             email: emailClient.value, 
             telefone: phoneClient.value, 
-            cep: cepClient.value, // Usando a variável corrigida
+            cep: CEPClient.value, 
             logradouro: addressClient.value,
             numero: numberClient.value, 
             complemento: complementClient.value, 
-            bairro: neighborhoodClientCorrected.value, // Usando a variável corrigida
+            bairro: neighborhoodClient.value, // Usando a variável corrigida
             cidade: cityClient.value, 
             uf: ufClient.value, 
         };
-        console.log('Dados do Cliente Coletados (para envio ao Main):', clientData);
-        api.saveClient(clientData);
-    });
+        console.log('Dados do Cliente Coletados (para envio ao Main):', clientData)
+        api.saveClient(clientData)
+    })
 
-    // Funções de Busca e Limpeza
-    api.searchName = () => { 
-        const searchTerm = searchClientInput.value;
-        console.log('Buscar cliente por:', searchTerm);
-    };
-
-    api.buscarCEP = () => { 
-        const cep = cepClient.value; // Usando a variável corrigida
-        console.log('Buscando CEP:', cep);
-    };
+   
+   
 
     
   
+// ============================================================
+// == Reset Form ==============================================
+function resetForm(args){
+	console.log(args)
+    location.reload()
+}
 
+api.resetForm((args) => {
+    resetForm()
+})
+// == Fim Reset Form ==========================================
+// ============================================================
 
 
