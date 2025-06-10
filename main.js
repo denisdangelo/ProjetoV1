@@ -229,7 +229,8 @@ ipcMain.on('save-client', async (event, clientData) => {
 //==============================================================
 
 ipcMain.on('update-client', async (event, clientData) => {
-  const updateClientData = await clienteModel.findByIdAndUpdate(
+  try{
+	const updateClientData = await clienteModel.findByIdAndUpdate(
     clientData.idCli,
     {
       nome: clientData.nome,
@@ -243,10 +244,18 @@ ipcMain.on('update-client', async (event, clientData) => {
       bairro: clientData.bairro,
       cidade: clientData.cidade,
       uf: clientData.uf,
-    }
-  )
-})
+    },
+	{
+		new: true
+	}
 
+  )
+  	consele.log("dados alterados")
+  event.replay('reset-form')
+} catch (error) {
+	console.log(error)
+}
+})
 //Fim Crud Update ==============================================
 //==============================================================
 
