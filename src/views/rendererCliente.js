@@ -14,7 +14,7 @@ let complementClient = document.getElementById('inputComplementClient')
 let neighborhoodClient = document.getElementById('inputNeighborhoodClient')
 let cityClient = document.getElementById('inputCityClient')
 let ufClient = document.getElementById('inputUFClient')
-
+let search
 
 //crud create - update
 // Event listener para o envio do formulário
@@ -66,7 +66,8 @@ clientForm.addEventListener('submit', (event) => {
 
 //fim crud create
 
-//crud update
+//crud Read
+
 
 
 
