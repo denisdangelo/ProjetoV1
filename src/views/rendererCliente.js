@@ -1,55 +1,81 @@
 // src/views/rendererCliente.js
 
-   
-    const clientForm = document.getElementById('formClient')
-    const idClient = document.getElementById('inputIdClient')
-    const nameClient = document.getElementById('inputNameClient')
-    const CPFClient = document.getElementById('inputCPFClient');
-    const emailClient = document.getElementById('inputEmailClient')
-    const phoneClient = document.getElementById('inputPhoneClient')
-    const CEPClient  = document.getElementById('inputCEPClient')
-    const addressClient = document.getElementById('inputAddressClient')
-    const numberClient = document.getElementById('inputNumberClient')
-    const complementClient = document.getElementById('inputComplementClient')
-    const neighborhoodClient = document.getElementById('inputNeighborhoodClient')
-    const cityClient = document.getElementById('inputCityClient')
-    const ufClient = document.getElementById('inputUFClient')
-    
+
+let clientForm = document.getElementById('formClient')
+let idClient = document.getElementById('inputIdClient')
+let nameClient = document.getElementById('inputNameClient')
+let CPFClient = document.getElementById('inputCPFClient');
+let emailClient = document.getElementById('inputEmailClient')
+let phoneClient = document.getElementById('inputPhoneClient')
+let CEPClient = document.getElementById('inputCEPClient')
+let addressClient = document.getElementById('inputAddressClient')
+let numberClient = document.getElementById('inputNumberClient')
+let complementClient = document.getElementById('inputComplementClient')
+let neighborhoodClient = document.getElementById('inputNeighborhoodClient')
+let cityClient = document.getElementById('inputCityClient')
+let ufClient = document.getElementById('inputUFClient')
 
 
-    // Event listener para o envio do formulário
-    clientForm.addEventListener('submit', (event) => {
-        event.preventDefault()
+//crud create - update
+// Event listener para o envio do formulário
+clientForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
+    if (idClient.value === "") {
         const rawCPFClient = CPFClient.value;
         const cleanedCPFClient = rawCPFClient.replace(/[\.\- ]/g, '')
 
         const clientData = {
             nome: nameClient.value,
-            cpf: cleanedCPFClient, 
-            email: emailClient.value, 
-            telefone: phoneClient.value, 
-            cep: CEPClient.value, 
+            cpf: cleanedCPFClient,
+            email: emailClient.value,
+            telefone: phoneClient.value,
+            cep: CEPClient.value,
             logradouro: addressClient.value,
-            numero: numberClient.value, 
-            complemento: complementClient.value, 
+            numero: numberClient.value,
+            complemento: complementClient.value,
             bairro: neighborhoodClient.value, // Usando a variável corrigida
-            cidade: cityClient.value, 
-            uf: ufClient.value, 
-        };
+            cidade: cityClient.value,
+            uf: ufClient.value,
+        }
         console.log('Dados do Cliente Coletados (para envio ao Main):', clientData)
         api.saveClient(clientData)
-    })
+    } else {
+        const rawCPFClient = CPFClient.value;
+        const cleanedCPFClient = rawCPFClient.replace(/[\.\- ]/g, '')
 
-   
-   
+        const clientData = {
+            idCli: idClient.value,
+            nome: nameClient.value,
+            cpf: cleanedCPFClient,
+            email: emailClient.value,
+            telefone: phoneClient.value,
+            cep: CEPClient.value,
+            logradouro: addressClient.value,
+            numero: numberClient.value,
+            complemento: complementClient.value,
+            bairro: neighborhoodClient.value, // Usando a variável corrigida
+            cidade: cityClient.value,
+            uf: ufClient.value,
+        }
+        api.updateClient(clientData)
+    }
 
-    
-  
+
+})
+
+//fim crud create
+
+//crud update
+
+
+
+
+
 // ============================================================
 // == Reset Form ==============================================
-function resetForm(args){
-	console.log(args)
+function resetForm(args) {
+    console.log(args)
     location.reload()
 }
 

@@ -17,5 +17,6 @@ contextBridge.exposeInMainWorld('api', {
 	enterpriseWindow: () => ipcRenderer.send('enterprise-window'), 
 	productWindow: () => ipcRenderer.send('product-window'), 
 	OSWindow: () => ipcRenderer.send('OS-window'), 
-	resetForm: (args) => ipcRenderer.on('reset-form' , args)
+	resetForm: (args) => ipcRenderer.on('reset-form' , args),
+	updateClient: (clientData) => ipcRenderer.send('update-client', clientData),
 })
